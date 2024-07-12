@@ -8,7 +8,7 @@ import igentuman.ncsteamadditions.processors.ProcessorsRegistry;
 import igentuman.ncsteamadditions.recipes.NCSteamAdditionsRecipes;
 import it.unimi.dsi.fastutil.ints.*;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
-import mekanism.common.tile.TileEntityFuelwoodHeater;
+import mekanism.common.tile.machine.TileEntityFuelwoodHeater;
 import nc.ModCheck;
 import nc.config.NCConfig;
 import nc.init.NCItems;
@@ -286,8 +286,8 @@ public class TileNCSProcessor extends TileEnergyFluidSidedInventory implements I
         }
         if (heater == null) return;
         double temperature = 0;
-        if(ModCheck.mekanismLoaded() && heater instanceof mekanism.common.tile.TileEntityFuelwoodHeater) {
-            temperature = ((mekanism.common.tile.TileEntityFuelwoodHeater) heater).getTemp();
+        if(ModCheck.mekanismLoaded() && heater instanceof mekanism.common.tile.machine.TileEntityFuelwoodHeater) {
+            temperature = ((mekanism.common.tile.machine.TileEntityFuelwoodHeater) heater).getTemp();
             if(this.getCurrentReactivity() < this.getTargetReactivity()-1) {
                 this.currentReactivity += (float)temperature/50000;
                 currentReactivity = Math.min(currentReactivity,targetReactivity);
